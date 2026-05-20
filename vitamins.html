@@ -245,6 +245,35 @@ function showSlides() {
 
 showSlides();
 </script>
+<script>
+const hoverSound = new Audio("sounds/hover.wav");
+const clickSound = new Audio("sounds/click.wav");
 
+document.querySelectorAll("nav a").forEach(btn => {
+
+    btn.addEventListener("mouseenter", function () {
+
+        hoverSound.pause();
+        hoverSound.currentTime = 0;
+
+        hoverSound.play().catch(error => {
+            console.log("Hover sound blocked:", error);
+        });
+
+    });
+
+    btn.addEventListener("click", function () {
+
+        clickSound.pause();
+        clickSound.currentTime = 0;
+
+        clickSound.play().catch(error => {
+            console.log("Click sound blocked:", error);
+        });
+
+    });
+
+});
+</script>
 </body>
 </html>

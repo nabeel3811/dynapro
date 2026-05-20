@@ -140,21 +140,42 @@
 </footer>
 
 <script>
-const hoverSound = new Audio("sounds/hover.mp3");
-const clickSound = new Audio("sounds/click.mp3");
+const hoverSound = new Audio("sounds/hover.wav");
+const clickSound = new Audio("sounds/click.wav");
 
 document.querySelectorAll("nav a").forEach(btn => {
-    btn.addEventListener("mouseenter", () => {
+
+    btn.addEventListener("mouseenter", function () {
+
+        hoverSound.pause();
         hoverSound.currentTime = 0;
-        hoverSound.play();
+
+        hoverSound.play().catch(error => {
+            console.log("Hover sound blocked:", error);
+        });
+
     });
 
-    btn.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
-    });
+  btn.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    const link = this.href;
+
+    clickSound.pause();
+    clickSound.currentTime = 0;
+
+    clickSound.play();
+
+    setTimeout(() => {
+        window.location.href = link;
+    }, 150);
+
+});
+
 });
 </script>
-
 </body>
+
+
 </html>
