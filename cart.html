@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart - Dynapro</title>
+    <link rel="stylesheet" href="STYLE.CSS">
+</head>
+<body>
+
+<section class="header">
+    <nav>
+        <a href="index.html"><img src="IMAGES/dynapro.png" alt="Dynapro Logo"></a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="clothing.html">CLOTHING</a></li>
+                <li><a href="vitamins.html">VITAMINS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="nav-search">
+                <input type="text" placeholder="Search..." class="nav-search-input">
+                <button class="nav-search-btn">Go</button>
+            </div>
+
+            <a href="cart.html" class="cart-btn">
+                <img src="IMAGES/cart.png" class="cart-icon">
+            </a>
+        </div>
+    </nav>
+
+    <div class="text-box">
+        <h1>Your Cart</h1>
+        <p>Review your items before checkout</p>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- ITEM 1 -->
+    <div class="block" data-price="19.99">
+        <img src="IMAGES/shirt 4.webp">
+        <div>Shirt 1</div>
+        <div class="price">£19.99</div>
+
+        <div class="quantity">
+            Qty:
+            <button class="qty-btn minus">-</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn plus">+</button>
+        </div>
+
+        <a href="#" class="remove-btn">Remove</a>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="block" data-price="21.99">
+        <img src="IMAGES/shirt 6.webp">
+        <div>Shirt 2</div>
+        <div class="price">£21.99</div>
+
+        <div class="quantity">
+            Qty:
+            <button class="qty-btn minus">-</button>
+            <span class="qty-value">2</span>
+            <button class="qty-btn plus">+</button>
+        </div>
+
+        <a href="#" class="remove-btn">Remove</a>
+    </div>
+
+</div>
+
+<div class="cart-total-box">
+    <h2>Cart Total</h2>
+    <p>Subtotal: £63.97</p>
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+
+</div>
+
+<footer>
+    <div class="footer-content">
+        <h3>Dynapro</h3>
+        <p>Your performance, our mission.</p>
+
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="legal.html">Legal</a>
+            <a href="search.html">Search</a>
+        </div>
+
+        <p class="footer-copy">© 2026 Dynapro. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- ✅ INTERACTIVE CART JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    function updateSubtotal() {
+        let subtotal = 0;
+        const items = document.querySelectorAll(".block");
+
+        items.forEach(item => {
+            const price = parseFloat(item.dataset.price);
+            const qty = parseInt(item.querySelector(".qty-value").textContent);
+            subtotal += price * qty;
+        });
+
+        document.querySelector(".cart-total-box p").textContent =
+            `Subtotal: £${subtotal.toFixed(2)}`;
+    }
+
+    document.querySelectorAll(".block").forEach(item => {
+        const qtyValue = item.querySelector(".qty-value");
+        const plusBtn = item.querySelector(".plus");
+        const minusBtn = item.querySelector(".minus");
+        const removeBtn = item.querySelector(".remove-btn");
+
+        plusBtn.addEventListener("click", () => {
+            qtyValue.textContent = parseInt(qtyValue.textContent) + 1;
+            updateSubtotal();
+        });
+
+        minusBtn.addEventListener("click", () => {
+            let qty = parseInt(qtyValue.textContent);
+            if (qty > 1) {
+                qtyValue.textContent = qty - 1;
+                updateSubtotal();
+            }
+        });
+
+        removeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            item.remove();
+            updateSubtotal();
+        });
+    });
+
+    updateSubtotal();
+});
+</script>
+
+</body>
+</html>

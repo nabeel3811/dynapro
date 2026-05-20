@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-Dynapro</title>
+    <link rel="stylesheet" href="STYLE.CSS">
+</head>
+<body>
+
+<section class="header">
+    <nav>
+        <a href="index.html"><img src="IMAGES/dynapro.png" alt="Dynapro Logo"></a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="clothing.html">CLOTHING</a></li>
+                <li><a href="vitamins.html">VITAMINS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="nav-search">
+                <input type="text" placeholder="Search..." class="nav-search-input">
+                <button class="nav-search-btn">Go</button>
+            </div>
+
+            <a href="cart.html" class="cart-btn">
+                <img src="IMAGES/cart.png" class="cart-icon" alt="Cart">
+            </a>
+        </div>
+    </nav>
+
+    <div class="text-box">
+        <h1>Contact Us</h1>
+        <p>We're here to help you perform your best.</p>
+    </div>
+</section>
+
+<div class="contact-container">
+
+    <div class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>If you have questions about orders, products, or anything else, reach out anytime.</p>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+    </div>
+
+    <div class="contact-section">
+        <h2>Customer Support</h2>
+        <p>Email: support@dynapro.co.uk</p>
+        <p>Phone: +44 07761048571</p>
+        <p>Hours: Mon-Fri, 9am-6pm</p>
+    </div>
+
+    
+    <div class="contact-section">
+        <h2>Our Location</h2>
+        <p>123 Dynapro Street, Burnley, UK</p>
+
+        <div style="width:100%; height:350px; border-radius:15px; overflow:hidden; margin-top:20px;">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                style="border:0"
+                allowfullscreen 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.123456789!2d-2.248!3d53.789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b123456789!2sBurnley!5e0!3m2!1sen!2suk!4v000000000">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Follow Us</h2>
+        <p>Stay updated with new drops, offers, and performance tips.</p>
+        <ul class="contact-social">
+            <li>Instagram: @dynapro</li>
+            <li>Twitter: @dynapro</li>
+            <li>Facebook: Dynapro Official</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-content">
+        <h3>Dynapro</h3>
+        <p>Your performance, our mission.</p>
+
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="legal.html">Legal</a>
+            <a href="search.html">Search</a>
+        </div>
+
+        <p class="footer-copy">© 2026 Dynapro. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+document.querySelector(".contact-form").addEventListener("submit", function(e) {
+    const name = document.querySelector('input[placeholder="Your Name"]');
+    const email = document.querySelector('input[placeholder="Email Address"]');
+    const message = document.querySelector('textarea');
+
+    let errors = [];
+
+    if (name.value.trim().length < 2) {
+        errors.push("Name must be at least 2 characters.");
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value)) {
+        errors.push("Please enter a valid email address.");
+    }
+
+    if (message.value.trim().length < 10) {
+        errors.push("Message must be at least 10 characters.");
+    }
+
+    if (errors.length > 0) {
+        e.preventDefault();
+        alert(errors.join("\n"));
+    }
+});
+</script>
+
+</body>
+</html>

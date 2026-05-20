@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynapro</title>
+  <link rel="stylesheet" href="STYLE.CSS">
+</head>
+<body>
+
+<section class="header">
+  <nav>
+    <a href="index.html"><img src="IMAGES/dynapro.png" alt="Dynapro Logo"></a>
+
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="clothing.html">CLOTHING</a></li>
+        <li><a href="vitamins.html">VITAMINS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-search">
+        <input type="text" placeholder="Search..." class="nav-search-input">
+        <button class="nav-search-btn">Go</button>
+      </div>
+
+      <a href="cart.html" class="cart-btn">
+        <img src="IMAGES/cart.png" class="cart-icon">
+      </a>
+    </div>
+
+  </nav>
+</section>
+
+
+<div class="text-box">
+  <h1>DYNAPRO</h1>
+  <p>Get all your performance needs</p>
+  <a href="clothing.html" class="btn">Trending</a>
+</div>
+
+
+<!-- VIDEO CAROUSEL -->
+<div class="css-carousel dynapro-carousel">
+
+  <input type="radio" name="slide" id="s1" checked>
+
+  <div class="slides">
+    <div class="slide">
+      <video src="IMAGES/mixkit-man-throwing-barbells-to-the-floor-40250-hd-ready.mp4"
+             autoplay muted loop playsinline></video>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- HOME SECTIONS -->
+<div class="home-sections">
+
+  <div class="home-large clothing-box">
+    <div class="clothing-img"></div>
+
+    <div class="clothing-text">
+      <h2>Clothing</h2>
+      <p>Shop performance wear</p>
+      <a href="clothing.html" class="home-btn">Explore Clothing</a>
+    </div>
+  </div>
+
+  <div class="home-small vitamins-box">
+    <div class="vitamins-img"></div>
+
+    <div class="vitamins-text">
+      <h2>Vitamins</h2>
+      <p>Boost your performance</p>
+      <a href="vitamins.html" class="home-btn">Explore Vitamins</a>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- SPRING PROMO -->
+<div class="spring-promo">
+  <h2>Ready for spring?</h2>
+
+  <h3>FRESH COLORS.<br>SAME PERFORMANCE.</h3>
+
+  <p>
+    Step different with sport tech built for real life. Retro throwbacks meet futuristic 
+    disruptors in fresh spring colorways. Bold colors with comfort that lasts. 
+    Built to make a difference.
+  </p>
+
+  <a href="clothing.html" class="spring-btn">Shop Now</a>
+</div>
+
+
+<!-- MORE SECTIONS -->
+<div class="home-sections">
+
+    <div class="home-large" style="background-image: url('IMAGES/trending.webp'); background-size: cover; background-position: center;">
+        <h2>Trending</h2>
+        <p>Most popular products right now</p>
+        <a href="clothing.html" class="home-btn">Shop Now</a>
+    </div>
+
+    <div class="home-small" style="background-image: url('IMAGES/offers.png'); background-size: cover; background-position: center;">
+        <h2></h2>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <a href="vitamins.html" class="home-btn">View Offers</a>
+    </div>
+
+</div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <h3>Dynapro</h3>
+    <p>Your performance, our mission.</p>
+
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="legal.html">Legal</a>
+      <a href="search.html">Search</a>
+    </div>
+
+    <p class="footer-copy">© 2026 Dynapro. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const hoverSound = new Audio("sounds/hover.mp3");
+const clickSound = new Audio("sounds/click.mp3");
+
+document.querySelectorAll("nav a").forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+    });
+
+    btn.addEventListener("click", () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    });
+});
+</script>
+
+</body>
+</html>
